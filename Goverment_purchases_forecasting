@@ -1,3 +1,11 @@
 #Присоединяемся к заранее созданному датасету в SQL Server
-dbconnection <- odbcDriverConnect("Driver=ODBC Driver 11 for SQL Server;Server=vm-bi; Database=RTS_DWH_223;Uid=; Pwd=; trusted_connection=yes")
+library("RODBC")
+dbconnection <- odbcDriverConnect("Driver=ODBC Driver 11 for SQL Server;Server=vm-bi; Database=****;Uid=; Pwd=; trusted_connection=yes")
 dop_cal<- sqlQuery(dbconnection,paste("select * from [bi2].[BI_Analytics].[dbo].[Forecasting_44FZ_Fact_for_modeling_Cal_to_end_2018];"))
+
+library(lubridate)
+library(xts)
+library(plm)
+library(forecast)
+library(corrplot)
+library(zoo)
